@@ -26,18 +26,17 @@ BRANCH = os.environ.get("SITE_BRANCH", "main")
 FAMILIES = [
     ("case", "Case plastics", "The beige machine. Grounds of the Case flavor."),
     ("crt", "Screen glass", "Cabinet and glass greys. Grounds of the Screen flavor."),
-    ("phosphor", "Phosphor greens", "The terminal glow: strings, success and the cursor."),
+    ("phosphor", "Phosphor greens", "The terminal glow: keywords, functions, strings and the cursor. Green leads."),
     ("amber", "Amber", "The amber monitor and warm earth."),
     ("signal", "Signal", "The loudest colours. One per view."),
-    ("comfy", "Comfy cool hues", "Blue, purple, cyan and rose for a full syntax theme."),
     ("deep", "Deep", "Darker twins that hold 4.5:1 on beige. Text on Case."),
 ]
 CATEGORY_COLOR = {
-    "editor": "comfy-lilac",
+    "editor": "phosphor-lime",
     "terminal": "phosphor-celadon",
     "cli": "amber-custard",
-    "app": "comfy-periwinkle",
-    "desktop": "comfy-rose",
+    "app": "phosphor-soft",
+    "desktop": "amber-bronze",
 }
 # The design system ships these weights; tokens.json lists the .ttf names, the site serves .woff2.
 SHIPPED_FONTS = {

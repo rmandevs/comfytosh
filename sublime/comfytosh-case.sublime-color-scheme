@@ -40,7 +40,7 @@
     {
       "name": "Keyword",
       "scope": "keyword, storage, storage.type, storage.modifier, keyword.control, keyword.operator.new, keyword.operator.word",
-      "foreground": "#6a4c97"
+      "foreground": "#164a2b"
     },
     {
       "name": "String",
@@ -50,12 +50,12 @@
     {
       "name": "Regex",
       "scope": "string.regexp",
-      "foreground": "#1d6368"
+      "foreground": "#386852"
     },
     {
       "name": "Escape",
       "scope": "constant.character.escape, constant.character",
-      "foreground": "#8f3558"
+      "foreground": "#91491a"
     },
     {
       "name": "Number",
@@ -65,12 +65,12 @@
     {
       "name": "Constant",
       "scope": "constant.language, constant.other, support.constant, variable.other.constant",
-      "foreground": "#8f3558"
+      "foreground": "#91491a"
     },
     {
       "name": "Function",
       "scope": "entity.name.function, support.function, variable.function, meta.function-call",
-      "foreground": "#2f5f93"
+      "foreground": "#3d6b2a"
     },
     {
       "name": "Type",
@@ -80,7 +80,7 @@
     {
       "name": "Property",
       "scope": "variable.other.property, support.type.property-name, meta.object-literal.key, entity.other.attribute-name",
-      "foreground": "#1d6368"
+      "foreground": "#386852"
     },
     {
       "name": "Tag",
@@ -100,7 +100,7 @@
     {
       "name": "Markdown heading",
       "scope": "markup.heading",
-      "foreground": "#2f5f93",
+      "foreground": "#3d6b2a",
       "font_style": "bold"
     },
     {
@@ -142,7 +142,7 @@
     {
       "name": "Diff changed",
       "scope": "markup.changed",
-      "foreground": "#2f5f93"
+      "foreground": "#3d6b2a"
     }
   ]
 }

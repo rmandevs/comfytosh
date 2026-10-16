@@ -40,7 +40,7 @@
     {
       "name": "Keyword",
       "scope": "keyword, storage, storage.type, storage.modifier, keyword.control, keyword.operator.new, keyword.operator.word",
-      "foreground": "#b9a3d9"
+      "foreground": "#c5f899"
     },
     {
       "name": "String",
@@ -50,12 +50,12 @@
     {
       "name": "Regex",
       "scope": "string.regexp",
-      "foreground": "#7fcfd4"
+      "foreground": "#7cd3a2"
     },
     {
       "name": "Escape",
       "scope": "constant.character.escape, constant.character",
-      "foreground": "#e594b4"
+      "foreground": "#e59f71"
     },
     {
       "name": "Number",
@@ -65,12 +65,12 @@
     {
       "name": "Constant",
       "scope": "constant.language, constant.other, support.constant, variable.other.constant",
-      "foreground": "#e594b4"
+      "foreground": "#e59f71"
     },
     {
       "name": "Function",
       "scope": "entity.name.function, support.function, variable.function, meta.function-call",
-      "foreground": "#8fb3dd"
+      "foreground": "#a9dfbf"
     },
     {
       "name": "Type",
@@ -80,7 +80,7 @@
     {
       "name": "Property",
       "scope": "variable.other.property, support.type.property-name, meta.object-literal.key, entity.other.attribute-name",
-      "foreground": "#7fcfd4"
+      "foreground": "#7cd3a2"
     },
     {
       "name": "Tag",
@@ -100,7 +100,7 @@
     {
       "name": "Markdown heading",
       "scope": "markup.heading",
-      "foreground": "#8fb3dd",
+      "foreground": "#a9dfbf",
       "font_style": "bold"
     },
     {
@@ -142,7 +142,7 @@
     {
       "name": "Diff changed",
       "scope": "markup.changed",
-      "foreground": "#8fb3dd"
+      "foreground": "#a9dfbf"
     }
   ]
 }

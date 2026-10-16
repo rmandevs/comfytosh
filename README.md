@@ -49,7 +49,6 @@ Screen is the glass of the monitor; Case is the beige plastic around it. Every t
 |---|---|
 | `phosphor-celadon` | `#7cd3a2` |
 | `phosphor-soft` | `#a9dfbf` |
-| `phosphor-aqua` | `#9bf5c5` |
 | `phosphor-lime` | `#c5f899` |
 
 ### Amber
@@ -68,15 +67,6 @@ Screen is the glass of the monitor; Case is the beige plastic around it. Every t
 | `signal-scarlet` | `#df2935` |
 | `signal-grapefruit` | `#ff6b6b` |
 
-### Comfy cool hues
-
-| Name | Hex |
-|---|---|
-| `comfy-periwinkle` | `#8fb3dd` |
-| `comfy-lilac` | `#b9a3d9` |
-| `comfy-lagoon` | `#7fcfd4` |
-| `comfy-rose` | `#e594b4` |
-
 ### Deep (text on Case)
 
 | Name | Hex |
@@ -86,10 +76,9 @@ Screen is the glass of the monitor; Case is the beige plastic around it. Every t
 | `deep-phosphor` | `#22643f` |
 | `deep-bronze` | `#91491a` |
 | `deep-ebony` | `#4b5247` |
-| `deep-periwinkle` | `#2f5f93` |
-| `deep-lilac` | `#6a4c97` |
-| `deep-lagoon` | `#1d6368` |
-| `deep-rose` | `#8f3558` |
+| `deep-forest` | `#164a2b` |
+| `deep-moss` | `#3d6b2a` |
+| `deep-sage` | `#386852` |
 
 The full palette and every role (syntax, terminal, diff, status) are in [`palette.json`](palette.json), resolved for both flavors.
 

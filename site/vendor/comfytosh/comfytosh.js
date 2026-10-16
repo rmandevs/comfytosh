@@ -6,7 +6,7 @@
     'case-linen': '#ece7de', 'case-bone': '#e3dac9', 'case-silver': '#c7c4bf', 'case-graphite': '#333333',
     'crt-carbon': '#222623', 'crt-gunmetal': '#282e2b', 'crt-charcoal': '#343b37', 'crt-iron': '#3c4641',
     'crt-ebony': '#555d50', 'crt-olive': '#7e8f85', 'crt-ash': '#bac1b8', 'crt-mint': '#d6e8c8',
-    'phosphor-celadon': '#7cd3a2', 'phosphor-soft': '#a9dfbf', 'phosphor-aqua': '#9bf5c5', 'phosphor-lime': '#c5f899',
+    'phosphor-celadon': '#7cd3a2', 'phosphor-soft': '#a9dfbf', 'phosphor-lime': '#c5f899',
     'amber-custard': '#e8d595', 'amber-bronze': '#e59f71', 'amber-taupe': '#8a716a',
     'signal-tangerine': '#ff773d', 'signal-scarlet': '#df2935', 'signal-grapefruit': '#ff6b6b'
   };
@@ -76,9 +76,9 @@
     nube:     { color: 'crt-mint',          fy: 62 },
     trebol:   { color: 'phosphor-lime',     fy: 52 },
     flor:     { color: 'amber-custard',     fy: 52 },
-    estrella: { color: 'phosphor-aqua',      fy: 56 },
+    estrella: { color: 'phosphor-soft',      fy: 56 },
     fantasma: { color: 'case-silver',       fy: 48 },
-    gota:     { color: 'phosphor-aqua',     fy: 62 },
+    gota:     { color: 'phosphor-soft',     fy: 62 },
     hexagono: { color: 'amber-bronze',      fy: 52 },
     gato:     { color: 'amber-taupe',       fy: 60 },
     blob:     { color: 'signal-grapefruit', fy: 52 }
@@ -1382,7 +1382,7 @@
         '<text x="62" y="55" textLength="54" lengthAdjust="spacingAndGlyphs" style="fill:var(--crt-gunmetal);font:500 8px var(--font-mono)">ventilación</text>'; } },
     destello: { w: 90, h: 90, label: 'Destello',
       shape: function (a) { return '<path d="M40,0 H50 V20 H60 V40 H90 V50 H60 V70 H50 V90 H40 V70 H30 V50 H0 V40 H30 V20 H40 Z M8,8 H18 V18 H8 Z M72,72 H82 V82 H72 Z" ' + a + '/>'; },
-      art: function (sh) { return sh(stkFace('phosphor-aqua')) + '<rect x="30" y="30" width="30" height="30" style="fill:var(--phosphor-celadon)"/><rect x="34" y="34" width="8" height="8" style="fill:var(--case-linen)"/>'; } },
+      art: function (sh) { return sh(stkFace('phosphor-soft')) + '<rect x="30" y="30" width="30" height="30" style="fill:var(--phosphor-celadon)"/><rect x="34" y="34" width="8" height="8" style="fill:var(--case-linen)"/>'; } },
     disquete: { w: 90, h: 90, label: 'Disquete contento',
       shape: function (a) { return '<path d="M8,0 H72 L90,18 V82 Q90,90 82,90 H8 Q0,90 0,82 V8 Q0,0 8,0 Z" ' + a + '/>'; },
       art: function (sh) { return sh(stkFace('phosphor-celadon')) +
