@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" class="th" data-flavor="screen">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comfytosh Theme</title>
+<meta name="description" content="A cozy colour theme from beige machines and old terminals. Two flavors, 21 ports. Free and open source.">
+<meta name="theme-color" content="#282e2b">
+<meta property="og:title" content="Comfytosh Theme">
+<meta property="og:description" content="A cozy colour theme from beige machines and old terminals. do more, get comfy.">
+<meta property="og:image" content="assets/wallpapers/wallpaper-desktop.webp">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>
+  /* Pick the flavor before the first paint: a saved choice, else the system's. */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('comfytosh-flavor'); } catch (e) {}
+    if (t === 'pantalla') t = 'screen'; else if (t === 'carcasa') t = 'case';
+    if (t !== 'screen' && t !== 'case') t = matchMedia('(prefers-color-scheme: light)').matches ? 'case' : 'screen';
+    document.documentElement.setAttribute('data-flavor', t);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap">
+<link rel="stylesheet" href="vendor/comfytosh/tokens.css">
+<link rel="stylesheet" href="assets/theme.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#ports">Skip to the ports</a>
+
+<header class="bar">
+  <a class="brand" href="#top"><img src="assets/mark.svg" width="25" height="30" alt="">comfytosh</a>
+  <nav class="bar__links" aria-label="Sections">
+    <a href="#ports">Ports</a><a href="#palette">Palette</a><a href="https://github.com/rmandevs/comfytosh">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="top">
+  <div class="hero__text">
+    <h1 class="wordmark">Comfytosh</h1>
+    <p class="lede">A cozy colour theme from beige machines and old terminals.</p>
+    <div class="flavors" role="group" aria-label="Flavor">
+      <button class="key" type="button" data-flavor-set="screen" aria-pressed="true"><span class="key__face">Screen</span></button>
+      <button class="key" type="button" data-flavor-set="case" aria-pressed="false"><span class="key__face">Case</span></button>
+    </div>
+  </div>
+  <svg class="mac" viewBox="0 0 300 320" role="img" aria-labelledby="mac-t">
+    <title id="mac-t">A Macintosh whose screen shows code and the terminal colours in the Comfytosh theme</title>
+    <g stroke="var(--line)" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="18" y="22" width="264" height="284" rx="46" fill="var(--line)" stroke-width="6"/>
+      <rect x="30" y="10" width="264" height="284" rx="46" fill="var(--case-bone)" stroke-width="6"/>
+      <rect x="50" y="30" width="224" height="190" rx="32" fill="var(--case-silver)" stroke-width="5"/>
+      <rect x="62" y="42" width="200" height="166" rx="22" fill="var(--th-bg)" stroke-width="5"/>
+      <path d="M146 250q16 13 32 0" fill="none" stroke-width="5"/>
+      <rect x="54" y="250" width="28" height="14" rx="7" fill="var(--signal-tangerine)" stroke-width="3"/>
+    </g>
+    <rect x="202" y="250" width="68" height="14" rx="7" fill="var(--line)"/>
+    <g class="mac__code">
+      <text x="74" y="64"><tspan style="fill:var(--th-syntax-comment)">// do more, get comfy</tspan></text>
+      <text x="74" y="79"><tspan style="fill:var(--th-syntax-keyword)">import</tspan><tspan style="fill:var(--th-syntax-operator)"> { </tspan><tspan style="fill:var(--th-ink)">tea</tspan><tspan style="fill:var(--th-syntax-operator)"> } </tspan><tspan style="fill:var(--th-syntax-keyword)">from</tspan><tspan style="fill:var(--th-syntax-string)"> "./mug"</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="74" y="94"><tspan style="fill:var(--th-syntax-keyword)">const</tspan><tspan style="fill:var(--th-ink)"> mood </tspan><tspan style="fill:var(--th-syntax-operator)">=</tspan><tspan style="fill:var(--th-syntax-string)"> "cozy"</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="74" y="109"><tspan style="fill:var(--th-syntax-keyword)">fn</tspan><tspan style="fill:var(--th-syntax-function)"> nap</tspan><tspan style="fill:var(--th-syntax-operator)">(</tspan><tspan style="fill:var(--th-ink)">min </tspan><tspan style="fill:var(--th-syntax-operator)">= </tspan><tspan style="fill:var(--th-syntax-number)">25</tspan><tspan style="fill:var(--th-syntax-operator)">) {</tspan></text>
+      <text x="86" y="124"><tspan style="fill:var(--th-syntax-keyword)">if</tspan><tspan style="fill:var(--th-syntax-operator)"> (</tspan><tspan style="fill:var(--th-syntax-property)">rain</tspan><tspan style="fill:var(--th-syntax-operator)">) </tspan><tspan style="fill:var(--th-syntax-keyword)">return</tspan><tspan style="fill:var(--th-syntax-constant)"> true</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="86" y="139"><tspan style="fill:var(--th-syntax-keyword)">return</tspan><tspan style="fill:var(--th-syntax-constant)"> null</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="74" y="154"><tspan style="fill:var(--th-syntax-operator)">}</tspan></text>
+      <text x="74" y="169"><tspan style="fill:var(--th-success)">$</tspan><tspan style="fill:var(--th-ink)"> comfy</tspan></text>
+      <rect class="mac__cur" x="116" y="160" width="7" height="12" style="fill:var(--th-cursor)"/>
+      <rect x="74" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-black)"/>
+      <rect x="96" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-red)"/>
+      <rect x="119" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-green)"/>
+      <rect x="141" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-yellow)"/>
+      <rect x="164" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-blue)"/>
+      <rect x="186" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-magenta)"/>
+      <rect x="209" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-cyan)"/>
+      <rect x="231" y="182" width="18" height="12" rx="4" style="fill:var(--th-ansi-white)"/>
+    </g>
+  </svg>
+</section>
+
+<section class="section" id="ports" aria-labelledby="ports-title">
+  <div class="head">
+    <h2 id="ports-title">Ports</h2>
+    <p class="count" id="port-count" aria-live="polite">21 ports</p>
+  </div>
+  <div class="tools">
+    <input class="field" type="search" id="port-search" placeholder="Find your app…" aria-label="Find a port" autocomplete="off">
+    <div class="filters" role="group" aria-label="Filter by kind">
+<button class="key key--sm" type="button" aria-pressed="true" data-filter="all"><span class="key__face">All</span></button>
+<button class="key key--sm" type="button" aria-pressed="false" data-filter="editor"><span class="key__face">Editors</span></button>
+<button class="key key--sm" type="button" aria-pressed="false" data-filter="terminal"><span class="key__face">Terminals</span></button>
+<button class="key key--sm" type="button" aria-pressed="false" data-filter="cli"><span class="key__face">Command line</span></button>
+<button class="key key--sm" type="button" aria-pressed="false" data-filter="app"><span class="key__face">Apps</span></button>
+<button class="key key--sm" type="button" aria-pressed="false" data-filter="desktop"><span class="key__face">Desktops</span></button>
+    </div>
+  </div>
+  <div class="ports" id="port-grid">
+<article class="port" data-cat="terminal" data-search="alacritty alacritty terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">A</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/alacritty/README.md">Alacritty</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-alacritty.zip" download aria-label="Download Alacritty" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="bat bat command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">B</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/bat/README.md">bat</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-bat.zip" download aria-label="Download bat" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="btop btop command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">B</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/btop/README.md">btop</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-btop.zip" download aria-label="Download btop" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="fzf fzf command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">F</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/fzf/README.md">fzf</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-fzf.zip" download aria-label="Download fzf" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="ghostty ghostty terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">G</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/ghostty/README.md">Ghostty</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-ghostty.zip" download aria-label="Download Ghostty" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="helix helix editors"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">H</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/helix/README.md">Helix</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-helix.zip" download aria-label="Download Helix" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="iterm2 iterm2 terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">I</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/iterm2/README.md">iTerm2</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-iterm2.zip" download aria-label="Download iTerm2" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="jetbrains ides jetbrains editors"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">J</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/jetbrains/README.md">JetBrains IDEs</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-jetbrains.zip" download aria-label="Download JetBrains IDEs" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="kitty kitty terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">K</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/kitty/README.md">Kitty</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-kitty.zip" download aria-label="Download Kitty" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="lazygit lazygit command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">L</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/lazygit/README.md">lazygit</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-lazygit.zip" download aria-label="Download lazygit" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="neovim nvim editors"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">N</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/nvim/README.md">Neovim</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-nvim.zip" download aria-label="Download Neovim" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="app" data-search="obsidian obsidian apps"><span class="port__mark" style="--pm:var(--phosphor-soft)" aria-hidden="true">O</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/obsidian/README.md">Obsidian</a></h3><span class="port__cat">App</span></div><a class="port__dl" href="downloads/comfytosh-obsidian.zip" download aria-label="Download Obsidian" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="desktop" data-search="omarchy omarchy desktops"><span class="port__mark" style="--pm:var(--amber-bronze)" aria-hidden="true">O</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/omarchy/README.md">Omarchy</a></h3><span class="port__cat">Desktop</span></div><a class="port__dl" href="downloads/comfytosh-omarchy.zip" download aria-label="Download Omarchy" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="starship starship command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">S</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/starship/README.md">Starship</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-starship.zip" download aria-label="Download Starship" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="sublime text sublime editors"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">S</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/sublime/README.md">Sublime Text</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-sublime.zip" download aria-label="Download Sublime Text" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="cli" data-search="tmux tmux command line"><span class="port__mark" style="--pm:var(--amber-custard)" aria-hidden="true">T</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/tmux/README.md">tmux</a></h3><span class="port__cat">Command line</span></div><a class="port__dl" href="downloads/comfytosh-tmux.zip" download aria-label="Download tmux" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="vs code vscode editors cursor windsurf vscodium"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">V</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/vscode/README.md">VS Code</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-vscode.zip" download aria-label="Download VS Code" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="warp warp terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">W</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/warp/README.md">Warp</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-warp.zip" download aria-label="Download Warp" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="wezterm wezterm terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">W</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/wezterm/README.md">WezTerm</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-wezterm.zip" download aria-label="Download WezTerm" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="terminal" data-search="windows terminal windows-terminal terminals"><span class="port__mark" style="--pm:var(--phosphor-celadon)" aria-hidden="true">W</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/windows-terminal/README.md">Windows Terminal</a></h3><span class="port__cat">Terminal</span></div><a class="port__dl" href="downloads/comfytosh-windows-terminal.zip" download aria-label="Download Windows Terminal" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+<article class="port" data-cat="editor" data-search="zed zed editors"><span class="port__mark" style="--pm:var(--phosphor-lime)" aria-hidden="true">Z</span><div class="port__text"><h3 class="port__name"><a href="https://github.com/rmandevs/comfytosh/blob/main/zed/README.md">Zed</a></h3><span class="port__cat">Editor</span></div><a class="port__dl" href="downloads/comfytosh-zed.zip" download aria-label="Download Zed" title="Download"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a></article>
+  </div>
+  <p class="note" id="port-empty" hidden>No port for that yet.</p>
+  <p class="note">Missing your tool? <a href="https://github.com/rmandevs/comfytosh/issues/new?template=port-request.yml">Request a port</a> or <a href="https://github.com/rmandevs/comfytosh/blob/main/CONTRIBUTING.md">make one</a>.</p>
+</section>
+
+<section class="section" id="palette" aria-labelledby="palette-title">
+  <div class="head">
+    <h2 id="palette-title">Palette</h2>
+    <div class="head__keys">
+      <button class="key key--sm" type="button" data-copy-format="css"><span class="key__face">Copy CSS</span></button>
+      <a class="key key--sm" href="palette.json" download><span class="key__face">palette.json</span></a>
+    </div>
+  </div>
+  <div class="table">
+    <div class="table__scroll">
+      <table>
+        <thead><tr><th scope="col"><span class="sr-only">Swatch</span></th><th scope="col">Name</th><th scope="col">Hex</th><th scope="col">RGB</th><th scope="col">HSL</th></tr></thead>
+        <tbody>
+<tr class="fam"><th colspan="5" scope="rowgroup">Case plastics <span>The beige machine. Grounds of the Case flavor.</span></th></tr>
+<tr><td class="sw"><i style="--c:#ece7de"></i></td><th scope="row">case-linen</th><td><button type="button" data-copy="#ece7de">#ece7de</button></td><td><button type="button" data-copy="rgb(236, 231, 222)">rgb(236, 231, 222)</button></td><td><button type="button" data-copy="hsl(39, 27%, 90%)">hsl(39, 27%, 90%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#e3dac9"></i></td><th scope="row">case-bone</th><td><button type="button" data-copy="#e3dac9">#e3dac9</button></td><td><button type="button" data-copy="rgb(227, 218, 201)">rgb(227, 218, 201)</button></td><td><button type="button" data-copy="hsl(39, 32%, 84%)">hsl(39, 32%, 84%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#c7c4bf"></i></td><th scope="row">case-silver</th><td><button type="button" data-copy="#c7c4bf">#c7c4bf</button></td><td><button type="button" data-copy="rgb(199, 196, 191)">rgb(199, 196, 191)</button></td><td><button type="button" data-copy="hsl(38, 7%, 76%)">hsl(38, 7%, 76%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#333333"></i></td><th scope="row">case-graphite</th><td><button type="button" data-copy="#333333">#333333</button></td><td><button type="button" data-copy="rgb(51, 51, 51)">rgb(51, 51, 51)</button></td><td><button type="button" data-copy="hsl(0, 0%, 20%)">hsl(0, 0%, 20%)</button></td></tr>
+<tr class="fam"><th colspan="5" scope="rowgroup">Screen glass <span>Cabinet and glass greys. Grounds of the Screen flavor.</span></th></tr>
+<tr><td class="sw"><i style="--c:#222623"></i></td><th scope="row">crt-carbon</th><td><button type="button" data-copy="#222623">#222623</button></td><td><button type="button" data-copy="rgb(34, 38, 35)">rgb(34, 38, 35)</button></td><td><button type="button" data-copy="hsl(135, 6%, 14%)">hsl(135, 6%, 14%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#282e2b"></i></td><th scope="row">crt-gunmetal</th><td><button type="button" data-copy="#282e2b">#282e2b</button></td><td><button type="button" data-copy="rgb(40, 46, 43)">rgb(40, 46, 43)</button></td><td><button type="button" data-copy="hsl(150, 7%, 17%)">hsl(150, 7%, 17%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#343b37"></i></td><th scope="row">crt-charcoal</th><td><button type="button" data-copy="#343b37">#343b37</button></td><td><button type="button" data-copy="rgb(52, 59, 55)">rgb(52, 59, 55)</button></td><td><button type="button" data-copy="hsl(146, 6%, 22%)">hsl(146, 6%, 22%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#3c4641"></i></td><th scope="row">crt-iron</th><td><button type="button" data-copy="#3c4641">#3c4641</button></td><td><button type="button" data-copy="rgb(60, 70, 65)">rgb(60, 70, 65)</button></td><td><button type="button" data-copy="hsl(150, 8%, 25%)">hsl(150, 8%, 25%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#555d50"></i></td><th scope="row">crt-ebony</th><td><button type="button" data-copy="#555d50">#555d50</button></td><td><button type="button" data-copy="rgb(85, 93, 80)">rgb(85, 93, 80)</button></td><td><button type="button" data-copy="hsl(97, 8%, 34%)">hsl(97, 8%, 34%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#7e8f85"></i></td><th scope="row">crt-olive</th><td><button type="button" data-copy="#7e8f85">#7e8f85</button></td><td><button type="button" data-copy="rgb(126, 143, 133)">rgb(126, 143, 133)</button></td><td><button type="button" data-copy="hsl(145, 7%, 53%)">hsl(145, 7%, 53%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#bac1b8"></i></td><th scope="row">crt-ash</th><td><button type="button" data-copy="#bac1b8">#bac1b8</button></td><td><button type="button" data-copy="rgb(186, 193, 184)">rgb(186, 193, 184)</button></td><td><button type="button" data-copy="hsl(107, 7%, 74%)">hsl(107, 7%, 74%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#d6e8c8"></i></td><th scope="row">crt-mint</th><td><button type="button" data-copy="#d6e8c8">#d6e8c8</button></td><td><button type="button" data-copy="rgb(214, 232, 200)">rgb(214, 232, 200)</button></td><td><button type="button" data-copy="hsl(94, 41%, 85%)">hsl(94, 41%, 85%)</button></td></tr>
+<tr class="fam"><th colspan="5" scope="rowgroup">Phosphor greens <span>The terminal glow: keywords, functions, strings and the cursor. Green leads.</span></th></tr>
+<tr><td class="sw"><i style="--c:#7cd3a2"></i></td><th scope="row">phosphor-celadon</th><td><button type="button" data-copy="#7cd3a2">#7cd3a2</button></td><td><button type="button" data-copy="rgb(124, 211, 162)">rgb(124, 211, 162)</button></td><td><button type="button" data-copy="hsl(146, 50%, 66%)">hsl(146, 50%, 66%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#a9dfbf"></i></td><th scope="row">phosphor-soft</th><td><button type="button" data-copy="#a9dfbf">#a9dfbf</button></td><td><button type="button" data-copy="rgb(169, 223, 191)">rgb(169, 223, 191)</button></td><td><button type="button" data-copy="hsl(144, 46%, 77%)">hsl(144, 46%, 77%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#c5f899"></i></td><th scope="row">phosphor-lime</th><td><button type="button" data-copy="#c5f899">#c5f899</button></td><td><button type="button" data-copy="rgb(197, 248, 153)">rgb(197, 248, 153)</button></td><td><button type="button" data-copy="hsl(92, 87%, 79%)">hsl(92, 87%, 79%)</button></td></tr>
+<tr class="fam"><th colspan="5" scope="rowgroup">Amber <span>The amber monitor and warm earth.</span></th></tr>
+<tr><td class="sw"><i style="--c:#e8d595"></i></td><th scope="row">amber-custard</th><td><button type="button" data-copy="#e8d595">#e8d595</button></td><td><button type="button" data-copy="rgb(232, 213, 149)">rgb(232, 213, 149)</button></td><td><button type="button" data-copy="hsl(46, 64%, 75%)">hsl(46, 64%, 75%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#e59f71"></i></td><th scope="row">amber-bronze</th><td><button type="button" data-copy="#e59f71">#e59f71</button></td><td><button type="button" data-copy="rgb(229, 159, 113)">rgb(229, 159, 113)</button></td><td><button type="button" data-copy="hsl(24, 69%, 67%)">hsl(24, 69%, 67%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#8a716a"></i></td><th scope="row">amber-taupe</th><td><button type="button" data-copy="#8a716a">#8a716a</button></td><td><button type="button" data-copy="rgb(138, 113, 106)">rgb(138, 113, 106)</button></td><td><button type="button" data-copy="hsl(13, 13%, 48%)">hsl(13, 13%, 48%)</button></td></tr>
+<tr class="fam"><th colspan="5" scope="rowgroup">Signal <span>The loudest colours. One per view.</span></th></tr>
+<tr><td class="sw"><i style="--c:#ff773d"></i></td><th scope="row">signal-tangerine</th><td><button type="button" data-copy="#ff773d">#ff773d</button></td><td><button type="button" data-copy="rgb(255, 119, 61)">rgb(255, 119, 61)</button></td><td><button type="button" data-copy="hsl(18, 100%, 62%)">hsl(18, 100%, 62%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#df2935"></i></td><th scope="row">signal-scarlet</th><td><button type="button" data-copy="#df2935">#df2935</button></td><td><button type="button" data-copy="rgb(223, 41, 53)">rgb(223, 41, 53)</button></td><td><button type="button" data-copy="hsl(356, 74%, 52%)">hsl(356, 74%, 52%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#ff6b6b"></i></td><th scope="row">signal-grapefruit</th><td><button type="button" data-copy="#ff6b6b">#ff6b6b</button></td><td><button type="button" data-copy="rgb(255, 107, 107)">rgb(255, 107, 107)</button></td><td><button type="button" data-copy="hsl(0, 100%, 71%)">hsl(0, 100%, 71%)</button></td></tr>
+<tr class="fam"><th colspan="5" scope="rowgroup">Deep <span>Darker twins that hold 4.5:1 on beige. Text on Case.</span></th></tr>
+<tr><td class="sw"><i style="--c:#ae3400"></i></td><th scope="row">deep-tangerine</th><td><button type="button" data-copy="#ae3400">#ae3400</button></td><td><button type="button" data-copy="rgb(174, 52, 0)">rgb(174, 52, 0)</button></td><td><button type="button" data-copy="hsl(18, 100%, 34%)">hsl(18, 100%, 34%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#ac1a23"></i></td><th scope="row">deep-scarlet</th><td><button type="button" data-copy="#ac1a23">#ac1a23</button></td><td><button type="button" data-copy="rgb(172, 26, 35)">rgb(172, 26, 35)</button></td><td><button type="button" data-copy="hsl(356, 74%, 39%)">hsl(356, 74%, 39%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#22643f"></i></td><th scope="row">deep-phosphor</th><td><button type="button" data-copy="#22643f">#22643f</button></td><td><button type="button" data-copy="rgb(34, 100, 63)">rgb(34, 100, 63)</button></td><td><button type="button" data-copy="hsl(146, 49%, 26%)">hsl(146, 49%, 26%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#91491a"></i></td><th scope="row">deep-bronze</th><td><button type="button" data-copy="#91491a">#91491a</button></td><td><button type="button" data-copy="rgb(145, 73, 26)">rgb(145, 73, 26)</button></td><td><button type="button" data-copy="hsl(24, 70%, 34%)">hsl(24, 70%, 34%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#4b5247"></i></td><th scope="row">deep-ebony</th><td><button type="button" data-copy="#4b5247">#4b5247</button></td><td><button type="button" data-copy="rgb(75, 82, 71)">rgb(75, 82, 71)</button></td><td><button type="button" data-copy="hsl(98, 7%, 30%)">hsl(98, 7%, 30%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#164a2b"></i></td><th scope="row">deep-forest</th><td><button type="button" data-copy="#164a2b">#164a2b</button></td><td><button type="button" data-copy="rgb(22, 74, 43)">rgb(22, 74, 43)</button></td><td><button type="button" data-copy="hsl(144, 54%, 19%)">hsl(144, 54%, 19%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#3d6b2a"></i></td><th scope="row">deep-moss</th><td><button type="button" data-copy="#3d6b2a">#3d6b2a</button></td><td><button type="button" data-copy="rgb(61, 107, 42)">rgb(61, 107, 42)</button></td><td><button type="button" data-copy="hsl(102, 44%, 29%)">hsl(102, 44%, 29%)</button></td></tr>
+<tr><td class="sw"><i style="--c:#386852"></i></td><th scope="row">deep-sage</th><td><button type="button" data-copy="#386852">#386852</button></td><td><button type="button" data-copy="rgb(56, 104, 82)">rgb(56, 104, 82)</button></td><td><button type="button" data-copy="hsl(153, 30%, 31%)">hsl(153, 30%, 31%)</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="note">Click a value to copy it. Ports map these colours through the roles in <a href="palette.json">palette.json</a>.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <img src="assets/mark.svg" width="25" height="30" alt="">
+  <p>Comfytosh is free and open source under the <a href="https://github.com/rmandevs/comfytosh/blob/main/LICENSE">MIT license</a>. do more, get comfy.</p>
+  <nav class="foot__links" aria-label="Footer">
+    <a href="https://github.com/rmandevs/comfytosh">GitHub</a><a href="https://github.com/rmandevs/comfytosh/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/rmandevs/comfytosh/tree/main/wallpapers">Wallpapers</a>
+  </nav>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="assets/site.js"></script>
+</body>
+</html>
