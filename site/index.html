@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" data-theme="pantalla">
+<html lang="en" class="th" data-flavor="screen">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Comfytosh Theme</title>
-<meta name="description" content="A cozy colour theme inspired by beige machines and old terminals. Two flavors, {{port_count}} ports for editors, terminals and the command line. do more, get comfy.">
+<meta name="description" content="A cozy colour theme for beige machines and old terminals. Two flavors, {{port_count}} ports. Free and open source.">
 <meta name="theme-color" content="#282e2b">
 <meta property="og:title" content="Comfytosh Theme">
-<meta property="og:description" content="A cozy palette inspired by beige machines and old terminals. do more, get comfy.">
+<meta property="og:description" content="A cozy colour theme for beige machines and old terminals. do more, get comfy.">
 <meta property="og:image" content="assets/wallpapers/wallpaper-desktop.webp">
 <link rel="apple-touch-icon" href="assets/mark.svg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -16,217 +16,111 @@
   (function () {
     var t = null;
     try { t = localStorage.getItem('comfytosh-flavor'); } catch (e) {}
-    if (t !== 'pantalla' && t !== 'carcasa') t = matchMedia('(prefers-color-scheme: light)').matches ? 'carcasa' : 'pantalla';
-    document.documentElement.setAttribute('data-theme', t);
+    if (t === 'pantalla') t = 'screen'; else if (t === 'carcasa') t = 'case';
+    if (t !== 'screen' && t !== 'case') t = matchMedia('(prefers-color-scheme: light)').matches ? 'case' : 'screen';
+    document.documentElement.setAttribute('data-flavor', t);
   })();
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap">
 <link rel="stylesheet" href="vendor/comfytosh/tokens.css">
-<link rel="stylesheet" href="vendor/comfytosh/comfytosh.css">
 <link rel="stylesheet" href="assets/theme.css">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#ports">Skip to the ports</a>
 
-<header class="ct-bar" data-nav>
-  <div class="bar">
-    <a class="brand" href="#top" aria-label="Comfytosh Theme, back to top">
-      <svg class="brand__mark" viewBox="0 0 15 18" width="30" height="36" shape-rendering="crispEdges" aria-hidden="true"><path fill="#282e2b" d="M1 0h13v1H1zM0 1h1v1H0zM14 1h1v1H14zM0 2h1v1H0zM2 2h11v1H2zM14 2h1v1H14zM0 3h1v1H0zM2 3h1v1H2zM12 3h1v1H12zM14 3h1v1H14zM0 4h1v1H0zM2 4h1v1H2zM12 4h1v1H12zM14 4h1v1H14zM0 5h1v1H0zM2 5h1v1H2zM12 5h1v1H12zM14 5h1v1H14zM0 6h1v1H0zM2 6h1v1H2zM12 6h1v1H12zM14 6h1v1H14zM0 7h1v1H0zM2 7h1v1H2zM12 7h1v1H12zM14 7h1v1H14zM0 8h1v1H0zM2 8h1v1H2zM12 8h1v1H12zM14 8h1v1H14zM0 9h1v1H0zM2 9h1v1H2zM12 9h1v1H12zM14 9h1v1H14zM0 10h1v1H0zM2 10h11v1H2zM14 10h1v1H14zM0 11h1v1H0zM14 11h1v1H14zM0 12h1v1H0zM14 12h1v1H14zM0 13h1v1H0zM14 13h1v1H14zM0 14h1v1H0zM14 14h1v1H14zM0 15h1v1H0zM14 15h1v1H14zM1 16h1v1H1zM13 16h1v1H13zM1 17h13v1H1z"/><path fill="#e3dac9" d="M1 1h12v1H1zM1 2h1v1H1zM1 3h1v1H1zM1 4h1v1H1zM1 5h1v1H1zM1 6h1v1H1zM1 7h1v1H1zM1 8h1v1H1zM1 9h1v1H1zM1 10h1v1H1zM1 11h12v1H1zM1 12h12v1H1zM1 13h7v1H1zM12 13h1v1H12zM1 14h12v1H1z"/><path fill="#c7c4bf" d="M13 1h1v1H13zM13 2h1v1H13zM13 3h1v1H13zM13 4h1v1H13zM13 5h1v1H13zM13 6h1v1H13zM13 7h1v1H13zM13 8h1v1H13zM13 9h1v1H13zM13 10h1v1H13zM13 11h1v1H13zM13 12h1v1H13zM13 13h1v1H13zM13 14h1v1H13zM1 15h13v1H1zM2 16h11v1H2z"/><path fill="#222623" d="M3 3h9v1H3zM3 4h2v1H3zM6 4h3v1H6zM10 4h2v1H10zM3 5h3v1H3zM7 5h2v1H7zM10 5h2v1H10zM3 6h2v1H3zM6 6h6v1H6zM3 7h9v1H3zM3 8h2v1H3zM6 8h4v1H6zM11 8h1v1H11zM3 9h3v1H3zM10 9h2v1H10zM8 13h3v1H8z"/><path fill="#7cd3a2" d="M5 4h1v1H5zM9 4h1v1H9zM6 5h1v1H6zM9 5h1v1H9zM5 6h1v1H5z"/><path fill="#c5f899" d="M5 8h1v1H5zM10 8h1v1H10zM6 9h4v1H6z"/><path fill="#ff773d" d="M11 13h1v1H11z"/></svg>
-      <span class="brand__word">comfytosh</span>
-    </a>
-    <nav class="bar__links" aria-label="Sections">
-      <a href="#palette">palette</a><a href="#ports">ports</a><a href="#contribute">contribute</a>
-    </nav>
-    <div class="bar__end">
-      <a class="bar__gh" href="{{repo}}" aria-label="Comfytosh on GitHub"><span data-ic="mark-github"></span></a>
-      <label class="theme-switch" title="Screen or Case">
-        <input type="checkbox" id="flavor-switch" aria-label="Dark flavor (Screen)"><span class="theme-switch__track"><span>case</span><span>screen</span></span>
-      </label>
-    </div>
-  </div>
+<header class="bar">
+  <a class="brand" href="#top"><img src="assets/mark.svg" width="25" height="30" alt="">comfytosh</a>
+  <nav class="bar__links" aria-label="Sections">
+    <a href="#ports">Ports</a><a href="#palette">Palette</a><a href="{{repo}}">GitHub</a>
+  </nav>
 </header>
 
-<main id="main">
+<main>
 
 <section class="hero" id="top">
-  <p class="eyebrow">colour theme · 2 flavors · {{port_count}} ports</p>
-  <h1 class="display">Comfytosh<br>Theme</h1>
-  <p class="lede">A cozy palette inspired by beige machines and old terminals. Warm neutrals, soft accents, nothing pure black or pure white. do more, get comfy.</p>
-  <form class="hero__find" action="#ports" role="search" id="hero-find">
-    <input class="field" type="search" name="q" id="hero-q" placeholder="Find your app: neovim, kitty, bat…" aria-label="Find your app" autocomplete="off" list="port-names">
-    <button class="btn btn--accent" type="submit">Get comfy ↵</button>
-  </form>
-  <datalist id="port-names">
-<!-- @datalist -->
-  </datalist>
-  <div class="strip" aria-hidden="true">
-    <i style="background:var(--crt-mint)"></i><i style="background:var(--signal-tangerine)"></i><i style="background:var(--phosphor-celadon)"></i><i style="background:var(--amber-custard)"></i><i style="background:var(--case-bone)"></i><i style="background:var(--crt-gunmetal)"></i>
+  <svg class="mac" viewBox="0 0 260 300" role="img" aria-labelledby="mac-t">
+    <title id="mac-t">A Macintosh whose screen shows a few lines of code in the Comfytosh theme</title>
+    <g stroke="var(--line)" stroke-linejoin="round">
+      <rect x="22" y="20" width="200" height="262" rx="30" fill="var(--line)" stroke-width="6"/>
+      <rect x="34" y="8" width="200" height="262" rx="30" fill="var(--case-bone)" stroke-width="6"/>
+      <rect x="56" y="30" width="156" height="142" rx="20" fill="var(--case-silver)" stroke-width="5"/>
+      <rect x="70" y="44" width="128" height="106" rx="12" fill="var(--th-bg)" stroke-width="5"/>
+      <path d="M37 214H231" fill="none" stroke-width="5"/>
+    </g>
+    <rect x="140" y="232" width="72" height="12" rx="6" fill="var(--line)"/>
+    <rect x="58" y="232" width="20" height="12" rx="5" fill="var(--signal-tangerine)" stroke="var(--line)" stroke-width="3"/>
+    <g class="mac__code">
+      <text x="80" y="63" style="fill:var(--th-syntax-comment)">// get comfy</text>
+      <text x="80" y="77"><tspan style="fill:var(--th-syntax-keyword)">const</tspan><tspan style="fill:var(--th-ink)"> mood </tspan><tspan style="fill:var(--th-syntax-operator)">=</tspan><tspan style="fill:var(--th-syntax-string)"> "cozy"</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="80" y="91"><tspan style="fill:var(--th-syntax-keyword)">fn</tspan><tspan style="fill:var(--th-syntax-function)"> warm</tspan><tspan style="fill:var(--th-syntax-operator)">(</tspan><tspan style="fill:var(--th-ink)">t </tspan><tspan style="fill:var(--th-syntax-operator)">= </tspan><tspan style="fill:var(--th-syntax-number)">4.5</tspan><tspan style="fill:var(--th-syntax-operator)">) {</tspan></text>
+      <text x="80" y="105"><tspan style="fill:var(--th-syntax-keyword)">  return</tspan><tspan style="fill:var(--th-syntax-constant)"> true</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="80" y="119" style="fill:var(--th-syntax-operator)">}</text>
+      <text x="80" y="135"><tspan style="fill:var(--th-success)">$</tspan></text>
+      <rect class="mac__cur" x="88" y="127" width="6" height="10" style="fill:var(--th-cursor)"/>
+    </g>
+  </svg>
+  <h1 class="wordmark">comfytosh</h1>
+  <p class="lede">A cozy colour theme for beige machines and old terminals.</p>
+  <div class="flavors" role="group" aria-label="Flavor">
+    <button class="key" type="button" data-flavor-set="screen" aria-pressed="true"><span class="key__face">Screen</span></button>
+    <button class="key" type="button" data-flavor-set="case" aria-pressed="false"><span class="key__face">Case</span></button>
   </div>
-</section>
-
-<section class="section" id="flavors" aria-labelledby="flavors-title">
-  <div class="section__head split">
-    <div>
-      <p class="eyebrow">two flavors</p>
-      <h2 class="title" id="flavors-title">Screen and Case</h2>
-      <p class="sub"><strong>Screen</strong> is the dark glass: warm green-grey with phosphor ink. <strong>Case</strong> is the beige plastic, with the same hues pressed darker so every text colour clears 4.5:1.</p>
-    </div>
-    <div class="flavor-pick">
-      <div class="seg" role="radiogroup" aria-label="Flavor in the preview">
-        <label><input type="radio" name="flavor" value="screen" checked><span>Screen</span></label>
-        <label><input type="radio" name="flavor" value="case"><span>Case</span></label>
-      </div>
-      <dl class="flavor-facts th" data-flavor="screen">
-        <div><dt>ground</dt><dd><i class="dot" style="background:var(--th-bg)"></i><span data-fact="ground">crt-gunmetal #282e2b</span></dd></div>
-        <div><dt>text</dt><dd><i class="dot" style="background:var(--th-ink)"></i><span data-fact="text">crt-mint #d6e8c8</span></dd></div>
-      </dl>
-    </div>
-  </div>
-  <div class="th stage" data-flavor="screen" id="preview">
-    <figure class="mon mon--editor">
-      <div class="mon__screen">
-        <div class="ed">
-          <div class="ed__tabs"><span class="ed__tab is-on">palette.ts</span><span class="ed__tab">README.md</span></div>
-          <div class="ed__code">
-            <div class="ln"><span class="n">1</span><span class="code"><span class="kw">import</span> <span class="op">{</span> flavors <span class="op">}</span> <span class="kw">from</span> <span class="st">"./comfytosh"</span><span class="op">;</span></span></div>
-            <div class="ln"><span class="n">2</span><span class="code"> </span></div>
-            <div class="ln"><span class="n">3</span><span class="code"><span class="cm">// pick the flavor that fits the room</span></span></div>
-            <div class="ln"><span class="n">4</span><span class="code"><span class="kw">export function</span> <span class="fn">pick</span><span class="op">(</span>name<span class="op">:</span> <span class="ty">string</span><span class="op">,</span> <span class="mt">min</span> <span class="op">=</span> <span class="nu">4.5</span><span class="op">)</span> <span class="op">{</span></span></div>
-            <div class="ln add"><span class="n"><b></b>5</span><span class="code">  <span class="kw">const</span> flavor <span class="op">=</span> flavors<span class="op">[</span>name<span class="op">];</span></span></div>
-            <div class="ln"><span class="n">6</span><span class="code">  <span class="kw">const</span> ratio<span class="op">:</span> <span class="ty">number</span> <span class="op">=</span> <span class="err st">"4.5"</span><span class="op">;</span></span></div>
-            <div class="hov"><span>error</span> Type 'string' is not assignable to type 'number'.</div>
-            <div class="ln"><span class="n">7</span><span class="code">  <span class="kw">if</span> <span class="op">(!</span>flavor<span class="op">)</span> <span class="kw">throw new</span> <span class="ty">Error</span><span class="op">(</span><span class="st">"unknown flavor"</span><span class="op">);</span></span></div>
-            <div class="ln cl mod"><span class="n"><b></b>8</span><span class="code">  <span class="kw">return</span> <span class="sel">flavor<span class="op">.</span><span class="pr">colors</span></span><span class="op">.</span><span class="fn">filter</span><span class="op">((</span>c<span class="op">)</span> <span class="op">=&gt;</span> c<span class="op">.</span><span class="pr">ratio</span> <span class="op">&gt;=</span> <span class="mt">min</span><span class="op">);</span><span class="cur"></span></span></div>
-            <div class="ln"><span class="n">9</span><span class="code"><span class="op">}</span></span></div>
-            <div class="ln"><span class="n">10</span><span class="code"> </span></div>
-            <div class="ln"><span class="n">11</span><span class="code"><span class="kw">const</span> count <span class="op">=</span> <span class="nu">2</span><span class="op">,</span> ready <span class="op">=</span> <span class="co">true</span><span class="op">,</span> note <span class="op">=</span> <span class="co">null</span><span class="op">;</span></span></div>
-            <div class="ln"><span class="n">12</span><span class="code"><span class="kw">export const</span> <span class="fn">Swatch</span> <span class="op">=</span> <span class="op">()</span> <span class="op">=&gt;</span> <span class="op">&lt;</span><span class="tg">span</span> <span class="pr">className</span><span class="op">=</span><span class="st">"swatch"</span> <span class="op">/&gt;;</span></span></div>
-            <div class="diff">
-              <div class="dr"><i>-</i>const ratio: number = 3.9;</div>
-              <div class="dm"><i>~</i>const ratio: number = "4.5";</div>
-              <div class="da"><i>+</i>const flavor = flavors[name];</div>
-            </div>
-          </div>
-          <div class="ed__stat"><span><span class="a">main*</span>  <span class="e">1 error</span>  <span class="w">1 warning</span></span><span>TypeScript  Ln 8, Col 50</span></div>
-        </div>
-      </div>
-      <figcaption><span class="mon__label">editor</span> palette.ts<span class="sr-only">. A code editor in Comfytosh Theme: syntax colours, a selection, find matches, a diagnostic and a diff.</span></figcaption>
-    </figure>
-    <figure class="mon mon--term">
-      <div class="mon__screen">
-<pre class="term"><span class="g b">comfy@mac</span> <span class="bl">~/theme</span> <span class="m">main*</span> <span class="y">$</span> ls -l
-drwxr-xr-x  <span class="bl b">docs/</span>
--rwxr-xr-x  <span class="g">build.sh</span>
-lrwxr-xr-x  <span class="c">latest</span> -> v1
--rw-r--r--  palette.json
-<span class="g b">comfy@mac</span> <span class="bl">~/theme</span> <span class="m">main*</span> <span class="y">$</span> git diff --stat
- palette.json | 4 <span class="g">++</span><span class="r">--</span>
-<span class="g b">comfy@mac</span> <span class="bl">~/theme</span> <span class="m">main*</span> <span class="y">$</span> npm test
- <span class="tag">PASS</span> contrast <span class="d">36 pairs at 4.5:1</span>
- <span class="tag y">WARN</span> ansi-bright-black <span class="d">4.49:1</span>
- <span class="tag r">FAIL</span> <span class="r">missing token</span> <span class="d">comfy-teal</span>
- <span class="tag bl">INFO</span> <span class="sel">2 flavors</span> built
-<span class="g b">comfy@mac</span> <span class="bl">~/theme</span> <span class="m">main*</span> <span class="y">$</span> <span class="tcur"></span></pre>
-        <div class="ansi" aria-label="The 16 ANSI colours">
-          <i style="background:var(--th-ansi-black)" title="black"></i><i style="background:var(--th-ansi-red)" title="red"></i><i style="background:var(--th-ansi-green)" title="green"></i><i style="background:var(--th-ansi-yellow)" title="yellow"></i><i style="background:var(--th-ansi-blue)" title="blue"></i><i style="background:var(--th-ansi-magenta)" title="magenta"></i><i style="background:var(--th-ansi-cyan)" title="cyan"></i><i style="background:var(--th-ansi-white)" title="white"></i>
-          <i style="background:var(--th-ansi-bright-black)" title="bright black"></i><i style="background:var(--th-ansi-bright-red)" title="bright red"></i><i style="background:var(--th-ansi-bright-green)" title="bright green"></i><i style="background:var(--th-ansi-bright-yellow)" title="bright yellow"></i><i style="background:var(--th-ansi-bright-blue)" title="bright blue"></i><i style="background:var(--th-ansi-bright-magenta)" title="bright magenta"></i><i style="background:var(--th-ansi-bright-cyan)" title="bright cyan"></i><i style="background:var(--th-ansi-bright-white)" title="bright white"></i>
-        </div>
-      </div>
-      <figcaption><span class="mon__label">terminal</span> ~/theme<span class="sr-only">. A terminal session in Comfytosh Theme, followed by the 16 ANSI colours.</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section" id="palette" aria-labelledby="palette-title">
-  <div class="section__head split">
-    <div>
-      <p class="eyebrow">{{colour_count}} named colours</p>
-      <h2 class="title" id="palette-title">The palette</h2>
-      <p class="sub">Seven families, each with a job. Click a swatch to copy its value.</p>
-    </div>
-    <div class="palette-actions">
-      <div class="seg palette-format" role="radiogroup" aria-label="Colour format">
-        <label><input type="radio" name="fmt" value="hex" checked><span>HEX</span></label>
-        <label><input type="radio" name="fmt" value="rgb"><span>RGB</span></label>
-        <label><input type="radio" name="fmt" value="hsl"><span>HSL</span></label>
-      </div>
-      <div class="palette-keys">
-        <button class="btn" type="button" data-copy-format="css"><span data-ic="copy"></span>Copy CSS</button>
-        <button class="btn" type="button" data-copy-format="scss"><span data-ic="copy"></span>Copy SCSS</button>
-        <a class="btn" href="palette.json" download><span data-ic="download"></span>palette.json</a>
-      </div>
-    </div>
-  </div>
-  <div class="families">
-<!-- @palette -->
-  </div>
-</section>
-
-<section class="section" id="roles" aria-labelledby="roles-title">
-  <h2 class="sr-only" id="roles-title">Roles</h2>
-  <details class="roles-wrap">
-    <summary><span class="roles-wrap__title">Roles for port makers</span><span class="roles-wrap__sub">{{role_count}} roles every port maps to</span></summary>
-    <p class="sub">Every port maps the app to these {{role_count}} roles, so a string is the same green in your editor, your terminal and your prompt. Text roles clear WCAG AA (4.5:1) on their ground in both flavors; the few that don't are fills, and say so.</p>
-    <div class="roles">
-<!-- @roles -->
-    </div>
-  </details>
+  <p class="meta">2 flavors · {{port_count}} ports · {{colour_count}} colours · free, MIT</p>
 </section>
 
 <section class="section" id="ports" aria-labelledby="ports-title">
-  <div class="section__head">
-    <p class="eyebrow">{{port_count}} ports and counting</p>
-    <h2 class="title" id="ports-title">Ports</h2>
-    <p class="sub">Every port ships both flavors and is built from the same roles.</p>
+  <div class="head">
+    <h2 id="ports-title">Ports</h2>
+    <p class="count" id="port-count" aria-live="polite">{{port_count}} ports</p>
   </div>
-  <div class="ports__tools">
-    <input class="field" type="search" id="port-search" placeholder="Find a port: neovim, kitty, bat…" aria-label="Find a port" autocomplete="off">
-    <div class="ports__filters" role="group" aria-label="Filter by kind">
+  <div class="tools">
+    <input class="field" type="search" id="port-search" placeholder="Find your app…" aria-label="Find a port" autocomplete="off">
+    <div class="filters" role="group" aria-label="Filter by kind">
 <!-- @filters -->
     </div>
   </div>
-  <p class="ports__count" id="port-count" aria-live="polite">{{port_count}} ports</p>
   <div class="ports" id="port-grid">
 <!-- @ports -->
   </div>
-  <p class="ports__empty" id="port-empty" hidden>No port for that yet. <a href="{{repo}}/issues/new?template=port-request.yml">Ask for it</a> or build it yourself.</p>
-  <div class="wanted">
-    <p class="wanted__label">Wanted: ports nobody has made yet</p>
-    <ul class="wanted__list">
-<!-- @wanted -->
-    </ul>
-  </div>
+  <p class="note" id="port-empty" hidden>No port for that yet.</p>
+  <p class="note">Missing your tool? <a href="{{repo}}/issues/new?template=port-request.yml">Request a port</a> or <a href="{{repo}}/blob/{{branch}}/CONTRIBUTING.md">make one</a>.</p>
 </section>
 
-<section class="section" id="contribute" aria-labelledby="contribute-title">
-  <div class="contribute">
-    <p class="eyebrow">open to everyone</p>
-    <h2 class="title" id="contribute-title">Make a port</h2>
-    <p class="sub">A port is a folder with both flavors, a README and a line in <code>ports.json</code>. Copy <code>template/</code>, map your tool to the roles in <code>palette.json</code>, then run <code>python3 scripts/check_ports.py</code> and open a pull request.</p>
-    <div class="contribute__keys">
-      <a class="btn btn--accent" href="{{repo}}/blob/{{branch}}/CONTRIBUTING.md"><span data-ic="book"></span>Read the guide</a>
-      <a class="btn" href="{{repo}}/issues/new?template=port-request.yml"><span data-ic="plus"></span>Request a port</a>
-      <a class="btn" href="{{repo}}/issues/new?template=bug-report.yml"><span data-ic="issue-opened"></span>Report a bug</a>
+<section class="section" id="palette" aria-labelledby="palette-title">
+  <div class="head">
+    <h2 id="palette-title">Palette</h2>
+    <div class="head__keys">
+      <button class="key key--sm" type="button" data-copy-format="css"><span class="key__face">Copy CSS</span></button>
+      <a class="key key--sm" href="palette.json" download><span class="key__face">palette.json</span></a>
     </div>
   </div>
+  <div class="table">
+    <div class="table__scroll">
+      <table>
+        <thead><tr><th scope="col"><span class="sr-only">Swatch</span></th><th scope="col">Name</th><th scope="col">Hex</th><th scope="col">RGB</th><th scope="col">HSL</th></tr></thead>
+        <tbody>
+<!-- @palette -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="note">Click a value to copy it. Ports map these colours through the roles in <a href="palette.json">palette.json</a>.</p>
 </section>
 
 </main>
 
 <footer class="foot">
-  <div class="foot__inner">
-    <div class="foot__brand">
-      <img src="assets/mark.svg" width="30" height="36" alt="">
-      <div><p class="foot__name">Comfytosh Theme</p><p class="foot__tag">do more, get comfy</p></div>
-    </div>
-    <nav class="foot__links" aria-label="Footer">
-      <a href="{{repo}}">GitHub</a><a href="palette.json" download>palette.json</a><a href="ports.json">ports.json</a><a href="{{repo}}/tree/{{branch}}/wallpapers">Wallpapers</a><a href="{{repo}}/blob/{{branch}}/LICENSE">MIT license</a>
-    </nav>
-  </div>
-  <p class="foot__print">Fonts: Geist, Geist Mono, Geist Pixel and IBM Plex Serif (SIL OFL 1.1), M PLUS Rounded 1c</p>
+  <img src="assets/mark.svg" width="25" height="30" alt="">
+  <p>Comfytosh is free and open source under the <a href="{{repo}}/blob/{{branch}}/LICENSE">MIT license</a>. do more, get comfy.</p>
+  <nav class="foot__links" aria-label="Footer">
+    <a href="{{repo}}">GitHub</a><a href="{{repo}}/blob/{{branch}}/CONTRIBUTING.md">Contributing</a><a href="{{repo}}/tree/{{branch}}/wallpapers">Wallpapers</a>
+  </nav>
 </footer>
 
-<script src="vendor/comfytosh/comfytosh.js"></script>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script src="assets/site.js"></script>
 </body>
 </html>
