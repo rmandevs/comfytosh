@@ -46,8 +46,8 @@ img, svg { display: block; max-width: 100%; }
 /* ── Hero: the machine, the name, the two flavors ── */
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto; padding: 40px 24px 24px; }
 .hero__text { min-width: 0; }
-.mac { justify-self: end; width: 100%; max-width: 500px; height: auto; }
-.mac__code { font: 500 9px/1 var(--font-mono); white-space: pre; }
+.mac { justify-self: end; width: 100%; max-width: 520px; height: auto; }
+.mac__code { font: 500 10px/1 var(--font-mono); }
 .mac__cur { animation: blink 1.1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .wordmark { margin: 0; font: 400 clamp(56px, 8.5vw, 104px)/1 var(--font-serif); letter-spacing: -.03em; }
