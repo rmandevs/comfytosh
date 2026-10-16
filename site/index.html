@@ -41,6 +41,15 @@
 <main>
 
 <section class="hero" id="top">
+  <div class="hero__text">
+    <h1 class="wordmark">Comfytosh</h1>
+    <p class="lede">A cozy colour theme for beige machines and old terminals.</p>
+    <div class="flavors" role="group" aria-label="Flavor">
+      <button class="key" type="button" data-flavor-set="screen" aria-pressed="true"><span class="key__face">Screen</span></button>
+      <button class="key" type="button" data-flavor-set="case" aria-pressed="false"><span class="key__face">Case</span></button>
+    </div>
+    <p class="meta">2 flavors · {{port_count}} ports · {{colour_count}} colours · free, MIT</p>
+  </div>
   <svg class="mac" viewBox="0 0 260 300" role="img" aria-labelledby="mac-t">
     <title id="mac-t">A Macintosh whose screen shows a few lines of code in the Comfytosh theme</title>
     <g stroke="var(--line)" stroke-linejoin="round">
@@ -56,19 +65,12 @@
       <text x="80" y="63" style="fill:var(--th-syntax-comment)">// get comfy</text>
       <text x="80" y="77"><tspan style="fill:var(--th-syntax-keyword)">const</tspan><tspan style="fill:var(--th-ink)"> mood </tspan><tspan style="fill:var(--th-syntax-operator)">=</tspan><tspan style="fill:var(--th-syntax-string)"> "cozy"</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
       <text x="80" y="91"><tspan style="fill:var(--th-syntax-keyword)">fn</tspan><tspan style="fill:var(--th-syntax-function)"> warm</tspan><tspan style="fill:var(--th-syntax-operator)">(</tspan><tspan style="fill:var(--th-ink)">t </tspan><tspan style="fill:var(--th-syntax-operator)">= </tspan><tspan style="fill:var(--th-syntax-number)">4.5</tspan><tspan style="fill:var(--th-syntax-operator)">) {</tspan></text>
-      <text x="80" y="105"><tspan style="fill:var(--th-syntax-keyword)">  return</tspan><tspan style="fill:var(--th-syntax-constant)"> true</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
+      <text x="90" y="105"><tspan style="fill:var(--th-syntax-keyword)">return</tspan><tspan style="fill:var(--th-syntax-constant)"> true</tspan><tspan style="fill:var(--th-syntax-operator)">;</tspan></text>
       <text x="80" y="119" style="fill:var(--th-syntax-operator)">}</text>
       <text x="80" y="135"><tspan style="fill:var(--th-success)">$</tspan></text>
       <rect class="mac__cur" x="88" y="127" width="6" height="10" style="fill:var(--th-cursor)"/>
     </g>
   </svg>
-  <h1 class="wordmark">comfytosh</h1>
-  <p class="lede">A cozy colour theme for beige machines and old terminals.</p>
-  <div class="flavors" role="group" aria-label="Flavor">
-    <button class="key" type="button" data-flavor-set="screen" aria-pressed="true"><span class="key__face">Screen</span></button>
-    <button class="key" type="button" data-flavor-set="case" aria-pressed="false"><span class="key__face">Case</span></button>
-  </div>
-  <p class="meta">2 flavors · {{port_count}} ports · {{colour_count}} colours · free, MIT</p>
 </section>
 
 <section class="section" id="ports" aria-labelledby="ports-title">
