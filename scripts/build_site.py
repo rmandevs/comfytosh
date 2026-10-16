@@ -2,8 +2,8 @@
 """Build the Comfytosh Theme landing page into _site/.
 
 Standard library only. The page is data driven:
-  - palette.json  -> the theme colours used by the examples and the palette section
-  - ports.json    -> the ports grid, the downloads and the wanted list
+  - palette.json  -> the theme colours used by the preview and the palette table
+  - ports.json    -> the ports grid and the downloads
   - site/vendor/comfytosh/tokens.json -> tokens.css for the Comfytosh design system
 
 Run from the repository root:  python3 scripts/build_site.py [--out _site]
@@ -32,17 +32,6 @@ FAMILIES = [
     ("comfy", "Comfy cool hues", "Blue, purple, cyan and rose for a full syntax theme."),
     ("deep", "Deep", "Darker twins that hold 4.5:1 on beige. Text on Case."),
 ]
-ROLE_GROUPS = [
-    ("Surfaces and text", ["bg", "bg-raised", "bg-sunken", "bg-overlay", "border", "border-strong", "ink", "ink-muted"], True),
-    ("Interaction", ["accent", "on-accent", "accent-ink", "focus", "cursor", "selection", "line-highlight", "match"], False),
-    ("Status and diff", ["success", "warning", "danger", "info", "hint", "diff-add-bg", "diff-remove-bg", "diff-change-bg"], False),
-    ("Syntax", None, True),
-    ("Terminal", None, False),
-]
-# Roles that are text: their contrast is measured against this ground role.
-TEXT_GROUND = {"ink": "bg", "ink-muted": "bg", "accent-ink": "bg", "on-accent": "accent",
-               "success": "bg", "warning": "bg", "danger": "bg", "info": "bg", "hint": "bg",
-               "focus": "bg", "cursor": "bg", "terminal-ink": "terminal-bg", "terminal-cursor": "terminal-bg"}
 CATEGORY_COLOR = {
     "editor": "comfy-lilac",
     "terminal": "phosphor-celadon",
@@ -150,160 +139,60 @@ def fmt_hsl(hx):
     return "hsl(%d, %d%%, %d%%)" % (round(h * 360) % 360, round(s_ * 100), round(l * 100))
 
 
-def luminance(hx):
-    def ch(c):
-        c /= 255
-        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
-    r, g, b = rgb_of(hx)
-    return 0.2126 * ch(r) + 0.7152 * ch(g) + 0.0722 * ch(b)
-
-
-def contrast(a, b):
-    la, lb = sorted((luminance(a), luminance(b)), reverse=True)
-    return (la + 0.05) / (lb + 0.05)
 
 
 # ── HTML fragments ──
 
 def render_palette(palette):
     prims = palette["primitives"]
-    blocks = []
+    rows = []
     for prefix, title, note in FAMILIES:
         names = [n for n in prims if n.split("-")[0] == prefix]
         if not names:
             continue
-        chips = []
+        rows.append('<tr class="fam"><th colspan="5" scope="rowgroup">{t} <span>{note}</span></th></tr>'.format(
+            t=esc(title), note=esc(note)))
         for n in names:
             hx = prims[n]
-            chips.append(
-                '<div class="chip"><button class="chip__cap" style="--c:{hx}" data-copy="{hx}" data-hex="{hx}" '
-                'data-rgb="{rgb}" data-hsl="{hsl}" aria-label="Copy {n}"></button><span class="chip__name">{n}</span>'
-                '<span class="chip__hex">{hx}</span></div>'.format(n=esc(n), hx=esc(hx), rgb=fmt_rgb(hx), hsl=fmt_hsl(hx))
-            )
-        blocks.append(
-            '<section class="family"><header class="family__head"><h3>{t}</h3><p>{note}</p></header>'
-            '<div class="chips">{chips}</div></section>'.format(t=esc(title), note=esc(note), chips="".join(chips))
-        )
-    return "\n".join(blocks)
-
-
-def render_roles(palette, notes):
-    prims = palette["primitives"]
-    by_hex = {}
-    for name, hx in prims.items():
-        by_hex.setdefault(hx.lower(), name)
-    flavors = palette["flavors"]
-    roles = list(flavors["screen"]["roles"])
-    groups = []
-    for title, names, is_open in ROLE_GROUPS:
-        if names is None and title == "Syntax":
-            names = [r for r in roles if r.startswith("syntax-")]
-        elif names is None:
-            names = [r for r in roles if r.startswith(("terminal-", "ansi-"))]
-        groups.append((title, names, is_open))
-    covered = {r for _, ns, _ in groups for r in ns}
-    leftover = [r for r in roles if r not in covered]
-    if leftover:
-        raise SystemExit("roles missing from the Roles section: " + ", ".join(leftover))
-
-    def ground_for(role):
-        if role.startswith("syntax-"):
-            return "bg"
-        if role.startswith("ansi-"):
-            return "terminal-bg"
-        return TEXT_GROUND.get(role)
-
-    def cell(fid, role):
-        r = flavors[fid]["roles"]
-        hx = r[role]
-        name = by_hex.get(hx.lower()[:7]) if len(hx) == 7 else None
-        if len(hx) == 9:
-            label = "%s at %d%%" % (by_hex.get(hx[:7].lower(), hx[:7]), round(int(hx[7:], 16) / 255 * 100))
-        else:
-            label = name or hx
-        ground = ground_for(role)
-        ratio = ""
-        if ground and len(hx) == 7:
-            ratio = '<span class="role__ratio">%.2f:1</span>' % contrast(hx, r[ground])
-        return ('<td><span class="role__sw" style="--c:{hx}" aria-hidden="true"></span>'
-                '<button class="role__val" type="button" data-copy="{hx}">{hx}</button>'
-                '<span class="role__prim">{label}</span>{ratio}</td>').format(hx=esc(hx), label=esc(label), ratio=ratio)
-
-    out = []
-    for title, names, is_open in groups:
-        rows = "".join(
-            '<tr><th scope="row"><code>{r}</code><span class="role__note">{note}</span></th>{s}{c}</tr>'.format(
-                r=esc(role), note=esc(notes.get(role, "")), s=cell("screen", role), c=cell("case", role))
-            for role in names
-        )
-        out.append(
-            '<details class="role-group"{open}><summary><span class="role-group__title">{t}</span>'
-            '<span class="role-group__count">{n} roles</span></summary><div class="role-table"><table>'
-            '<thead><tr><th scope="col">Role</th><th scope="col">Screen</th><th scope="col">Case</th></tr></thead>'
-            '<tbody>{rows}</tbody></table></div></details>'.format(
-                open=" open" if is_open else "", t=esc(title), n=len(names), rows=rows)
-        )
-    return "\n".join(out)
+            vals = "".join('<td><button type="button" data-copy="{v}">{v}</button></td>'.format(v=esc(v))
+                           for v in (hx, fmt_rgb(hx), fmt_hsl(hx)))
+            rows.append('<tr><td class="sw"><i style="--c:{hx}"></i></td><th scope="row">{n}</th>{vals}</tr>'.format(
+                hx=esc(hx), n=esc(n), vals=vals))
+    return "\n".join(rows)
 
 
 def render_filters(registry):
     counts = {}
     for p in registry["ports"]:
         counts[p["category"]] = counts.get(p["category"], 0) + 1
-    pills = ['<button class="pill is-on" type="button" aria-pressed="true" data-filter="all">All <span class="count">%d</span></button>' % len(registry["ports"])]
+    keys = ['<button class="key key--sm" type="button" aria-pressed="true" data-filter="all"><span class="key__face">All</span></button>']
     for key, label in registry["categories"].items():
         if key in counts:
-            pills.append(
-                '<button class="pill" type="button" aria-pressed="false" data-filter="{k}">{l} <span class="count">{c}</span></button>'.format(
-                    k=esc(key), l=esc(label), c=counts[key]
-                )
-            )
-    return "\n".join(pills)
+            keys.append('<button class="key key--sm" type="button" aria-pressed="false" data-filter="{k}"><span class="key__face">{l}</span></button>'.format(
+                k=esc(key), l=esc(label)))
+    return "\n".join(keys)
 
 
 def render_ports(registry):
     cats = registry["categories"]
     tiles = []
     for p in sorted(registry["ports"], key=lambda p: p["name"].lower()):
-        aliases = p.get("aliases", [])
-        search = " ".join([p["name"], p["id"], cats[p["category"]]] + aliases).lower()
-        also = '<p class="port__also">Also {}</p>'.format(esc(", ".join(aliases))) if aliases else ""
-        by = ", ".join('<a href="https://github.com/{u}">@{u}</a>'.format(u=esc(m)) for m in p.get("maintainers", []))
-        by = '<span class="port__by">by {}</span>'.format(by) if by else '<span class="port__by port__by--none">needs a maintainer</span>'
+        search = " ".join([p["name"], p["id"], cats[p["category"]]] + p.get("aliases", [])).lower()
         tiles.append(
-            """<article class="port" data-cat="{cat}" data-search="{search}">
-  <div class="port__head"><span class="port__mark" style="--pm:var(--{color})" aria-hidden="true">{initial}</span>
-    <div><h3 class="port__name"><a href="{home}">{name}</a></h3><span class="port__cat">{catlabel}</span></div></div>
-  {also}
-  <details class="port__how"><summary>How to install</summary><p>{install}</p></details>
-  <div class="port__foot"><a class="btn btn--sm" href="downloads/comfytosh-{id}.zip" download><span data-ic="download"></span>Download</a>
-    <a class="port__src" href="{repo}/blob/{branch}/{path}/README.md">Install guide</a>{by}</div>
-</article>""".format(
+            '<article class="port" data-cat="{cat}" data-search="{search}">'
+            '<span class="port__mark" style="--pm:var(--{color})" aria-hidden="true">{initial}</span>'
+            '<div class="port__text"><h3 class="port__name"><a href="{repo}/blob/{branch}/{path}/README.md">{name}</a></h3>'
+            '<span class="port__cat">{catlabel}</span></div>'
+            '<a class="port__dl" href="downloads/comfytosh-{id}.zip" download aria-label="Download {name}" title="Download">'
+            '<svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V2a.75.75 0 0 1 1.5 0v5.69l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 1 1 1.06-1.06Z"/></svg></a>'
+            '</article>'.format(
                 cat=esc(p["category"]), search=esc(search), color=CATEGORY_COLOR.get(p["category"], "crt-ash"),
-                initial=esc(p["name"][0].upper()), home=esc(p.get("homepage", "#")), name=esc(p["name"]),
+                initial=esc(p["name"][0].upper()), name=esc(p["name"]), id=esc(p["id"]), repo=REPO, branch=BRANCH,
+                path=esc(p["path"]),
                 catlabel=esc(cats[p["category"]].rstrip("s") if p["category"] != "cli" else "Command line"),
-                also=also, install=esc(p["install"]), id=esc(p["id"]), repo=REPO, branch=BRANCH,
-                path=esc(p["path"]), by=by,
             )
         )
-    tiles.append(
-        """<article class="port port--request" data-cat="all" data-search="">
-  <h3 class="port__name">Your tool here</h3>
-  <p>Comfytosh grows one port at a time. Ask for one, or build it with the guide.</p>
-  <div class="port__foot"><a class="btn btn--sm" href="{repo}/issues/new?template=port-request.yml"><span data-ic="plus"></span>Request a port</a>
-    <a class="port__src" href="{repo}/blob/{branch}/CONTRIBUTING.md">Build it</a></div>
-</article>""".format(repo=REPO, branch=BRANCH)
-    )
     return "\n".join(tiles)
-
-
-def render_wanted(registry):
-    tags = []
-    for name in registry.get("wanted", []):
-        title = "[Port]: " + name
-        href = "{}/issues/new?template=port-request.yml&title={}".format(REPO, title.replace(" ", "+").replace(":", "%3A").replace("[", "%5B").replace("]", "%5D"))
-        tags.append('<li><a class="tag" href="{h}"><span data-ic="plus"></span>{n}</a></li>'.format(h=esc(href), n=esc(name)))
-    return "\n".join(tags)
 
 
 # ── build ──
@@ -312,7 +201,6 @@ def build(out):
     palette = load(ROOT / "palette.json")
     registry = load(ROOT / "ports.json")
     tokens = load(VENDOR / "tokens.json")
-    notes = load(SITE / "data" / "roles.json")["roles"]
 
     if out.exists():
         shutil.rmtree(out)
@@ -336,10 +224,6 @@ def build(out):
         "<!-- @palette -->": render_palette(palette),
         "<!-- @filters -->": render_filters(registry),
         "<!-- @ports -->": render_ports(registry),
-        "<!-- @wanted -->": render_wanted(registry),
-        "<!-- @roles -->": render_roles(palette, notes),
-        "<!-- @datalist -->": "\n".join('<option value="%s">' % esc(p["name"]) for p in sorted(registry["ports"], key=lambda p: p["name"].lower())),
-        "{{role_count}}": str(len(palette["flavors"]["screen"]["roles"])),
         "{{port_count}}": str(len(registry["ports"])),
         "{{colour_count}}": str(len(palette["primitives"])),
         "{{repo}}": REPO,
