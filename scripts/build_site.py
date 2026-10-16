@@ -250,11 +250,11 @@ def render_filters(registry):
     counts = {}
     for p in registry["ports"]:
         counts[p["category"]] = counts.get(p["category"], 0) + 1
-    pills = ['<button class="ct-pill ct-pill--tangerine" type="button" aria-pressed="true" data-filter="all">All <span class="count">%d</span></button>' % len(registry["ports"])]
+    pills = ['<button class="pill is-on" type="button" aria-pressed="true" data-filter="all">All <span class="count">%d</span></button>' % len(registry["ports"])]
     for key, label in registry["categories"].items():
         if key in counts:
             pills.append(
-                '<button class="ct-pill" type="button" aria-pressed="false" data-filter="{k}">{l} <span class="count">{c}</span></button>'.format(
+                '<button class="pill" type="button" aria-pressed="false" data-filter="{k}">{l} <span class="count">{c}</span></button>'.format(
                     k=esc(key), l=esc(label), c=counts[key]
                 )
             )
@@ -276,7 +276,7 @@ def render_ports(registry):
     <div><h3 class="port__name"><a href="{home}">{name}</a></h3><span class="port__cat">{catlabel}</span></div></div>
   {also}
   <details class="port__how"><summary>How to install</summary><p>{install}</p></details>
-  <div class="port__foot"><a class="ct-key ct-key--sm" href="downloads/comfytosh-{id}.zip" download><span data-ic="download"></span>Download</a>
+  <div class="port__foot"><a class="btn btn--sm" href="downloads/comfytosh-{id}.zip" download><span data-ic="download"></span>Download</a>
     <a class="port__src" href="{repo}/blob/{branch}/{path}/README.md">Install guide</a>{by}</div>
 </article>""".format(
                 cat=esc(p["category"]), search=esc(search), color=CATEGORY_COLOR.get(p["category"], "crt-ash"),
@@ -290,7 +290,7 @@ def render_ports(registry):
         """<article class="port port--request" data-cat="all" data-search="">
   <h3 class="port__name">Your tool here</h3>
   <p>Comfytosh grows one port at a time. Ask for one, or build it with the guide.</p>
-  <div class="port__foot"><a class="ct-key ct-key--sm" href="{repo}/issues/new?template=port-request.yml"><span data-ic="plus"></span>Request a port</a>
+  <div class="port__foot"><a class="btn btn--sm" href="{repo}/issues/new?template=port-request.yml"><span data-ic="plus"></span>Request a port</a>
     <a class="port__src" href="{repo}/blob/{branch}/CONTRIBUTING.md">Build it</a></div>
 </article>""".format(repo=REPO, branch=BRANCH)
     )
@@ -302,7 +302,7 @@ def render_wanted(registry):
     for name in registry.get("wanted", []):
         title = "[Port]: " + name
         href = "{}/issues/new?template=port-request.yml&title={}".format(REPO, title.replace(" ", "+").replace(":", "%3A").replace("[", "%5B").replace("]", "%5D"))
-        tags.append('<li><a class="ct-tag ct-tag--sm" href="{h}"><span data-ic="plus"></span>{n}</a></li>'.format(h=esc(href), n=esc(name)))
+        tags.append('<li><a class="tag" href="{h}"><span data-ic="plus"></span>{n}</a></li>'.format(h=esc(href), n=esc(name)))
     return "\n".join(tags)
 
 
