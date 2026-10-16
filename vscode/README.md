@@ -18,6 +18,6 @@ The `publisher` in `package.json` is a placeholder: change it before publishing 
 
 ## Maintainers
 
-- [@vstrofago](https://github.com/vstrofago)
+- [@rmandevs](https://github.com/rmandevs)
 
-Something looks off? [Open a bug report](https://github.com/vstrofago/comfytosh/issues/new?template=bug-report.yml) and name this port.
+Something looks off? [Open a bug report](https://github.com/rmandevs/comfytosh/issues/new?template=bug-report.yml) and name this port.

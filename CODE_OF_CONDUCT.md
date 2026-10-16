@@ -11,6 +11,6 @@ We follow the [Contributor Covenant, version 2.1](https://www.contributor-covena
 
 ## If something goes wrong
 
-If someone makes you uncomfortable, contact the maintainer, [@vstrofago](https://github.com/vstrofago), privately, or use GitHub's *Report content* on the comment. Reports are kept confidential.
+If someone makes you uncomfortable, contact the maintainer, [@rmandevs](https://github.com/rmandevs), privately, or use GitHub's *Report content* on the comment. Reports are kept confidential.
 
 Maintainers may edit or remove comments, close threads, or block people who break this code, as described in the Contributor Covenant's enforcement guidelines.

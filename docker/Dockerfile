@@ -8,7 +8,7 @@ COPY . .
 RUN python3 scripts/check_ports.py \
  && python3 scripts/build_site.py --out /out
 
-# 2. Serve it under /comfytosh/, the same path as https://vstrofago.github.io/comfytosh/.
+# 2. Serve it under /comfytosh/, the same path as https://rmandevs.github.io/comfytosh/.
 FROM nginx:1.27-alpine
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /out /usr/share/nginx/html/comfytosh

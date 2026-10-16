@@ -6,7 +6,7 @@
 
 A cozy palette inspired by beige machines and old terminals.
 
-**[vstrofago.github.io/comfytosh](https://vstrofago.github.io/comfytosh/)**: every port, the palette and the roles.
+**[rmandevs.github.io/comfytosh](https://rmandevs.github.io/comfytosh/)**: every port, the palette and the roles.
 
 Comfytosh Theme is a colour theme in the tradition of Catppuccin, Dracula and Nord: a named palette, two flavors and ready-made ports for the editors, terminals and tools you spend your day in. Warm-tinted neutrals, low-saturation accents and nothing pure black or pure white, so the screen rests the eye and the colour does the work.
 
@@ -156,7 +156,7 @@ The other ports (JetBrains, Sublime Text, Warp, tmux, Starship, bat, fzf, lazygi
 
 ## Contributing
 
-Comfytosh is open the way Catppuccin and Dracula are: anyone can bring it to the tool they love. Missing a tool? [Request a port](https://github.com/vstrofago/comfytosh/issues/new?template=port-request.yml), or build it with [the contributing guide](CONTRIBUTING.md): copy [`template/`](template), map the app to the roles in `palette.json`, ship both flavors and register it in `ports.json`. `python3 scripts/check_ports.py` runs the same checks as CI.
+Comfytosh is open the way Catppuccin and Dracula are: anyone can bring it to the tool they love. Missing a tool? [Request a port](https://github.com/rmandevs/comfytosh/issues/new?template=port-request.yml), or build it with [the contributing guide](CONTRIBUTING.md): copy [`template/`](template), map the app to the roles in `palette.json`, ship both flavors and register it in `ports.json`. `python3 scripts/check_ports.py` runs the same checks as CI.
 
 The website is built from `palette.json` and `ports.json` by `scripts/build_site.py` and deploys to GitHub Pages on every push to `main`. It uses the Comfytosh design system, vendored in [`site/vendor/comfytosh/`](site/vendor/comfytosh).
 

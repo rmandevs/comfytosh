@@ -36,4 +36,4 @@ The [Comfytosh Theme](../README.md) port for [<Tool name>](<https://tool.homepag
 
 - [@<your-github-username>](https://github.com/<your-github-username>)
 
-Something looks off? [Open a bug report](https://github.com/vstrofago/comfytosh/issues/new?template=bug-report.yml) and name this port.
+Something looks off? [Open a bug report](https://github.com/rmandevs/comfytosh/issues/new?template=bug-report.yml) and name this port.

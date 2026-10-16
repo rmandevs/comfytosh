@@ -633,7 +633,7 @@ a.ct-tag:focus-visible, button.ct-tag:focus-visible { outline: 2px solid var(--f
 }
 
 
-/* ══ Patrones de la landing de vstrofago ═══════════════════════════════════
+/* ══ Patrones de la landing ═══════════════════════════════════
    Aparecieron al usar el sistema en una página real; son aditivos y no cambian nada de lo anterior. */
 
 /* Barra de menú: transparente mientras nada queda debajo; cuando algo la alcanza (la pantalla, la mesa),

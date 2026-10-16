@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Check [ports.json](https://github.com/vstrofago/comfytosh/blob/main/ports.json) and the open issues first, so the same port isn't asked for twice.
+        Check [ports.json](https://github.com/rmandevs/comfytosh/blob/main/ports.json) and the open issues first, so the same port isn't asked for twice.
   - type: input
     id: tool
     attributes:

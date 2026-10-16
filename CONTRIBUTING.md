@@ -4,9 +4,9 @@ Thanks for wanting to make more of your day comfy. Comfytosh is open the way Cat
 
 There are four ways to help:
 
-- **Request a port** for a tool that has none. [Open a port request](https://github.com/vstrofago/comfytosh/issues/new?template=port-request.yml).
+- **Request a port** for a tool that has none. [Open a port request](https://github.com/rmandevs/comfytosh/issues/new?template=port-request.yml).
 - **Make a port.** The rest of this guide is about that.
-- **Fix a port.** A colour that is hard to read, a missing scope, a broken install step. [Report it](https://github.com/vstrofago/comfytosh/issues/new?template=bug-report.yml), or send the fix straight away.
+- **Fix a port.** A colour that is hard to read, a missing scope, a broken install step. [Report it](https://github.com/rmandevs/comfytosh/issues/new?template=bug-report.yml), or send the fix straight away.
 - **Adopt a port.** If a port has no maintainer in `ports.json`, or its maintainer has moved on, say so in an issue and add yourself.
 
 Please read the [code of conduct](CODE_OF_CONDUCT.md) first. It is short.
@@ -24,18 +24,18 @@ docker/             runs the landing page locally, with compose.yaml
 scripts/            check_ports.py (runs in CI) and build_site.py
 ```
 
-The landing page at **https://vstrofago.github.io/comfytosh/** is generated from `palette.json` and `ports.json`. Once your port is merged it shows up there on its own, with a download.
+The landing page at **https://rmandevs.github.io/comfytosh/** is generated from `palette.json` and `ports.json`. Once your port is merged it shows up there on its own, with a download.
 
 ## Making a port
 
 ### 1. Claim it
 
-Search the [issues](https://github.com/vstrofago/comfytosh/issues) and `ports.json` first. If nobody is on it, open a port request (or comment on the existing one) saying you will build it, so two people don't do the same work.
+Search the [issues](https://github.com/rmandevs/comfytosh/issues) and `ports.json` first. If nobody is on it, open a port request (or comment on the existing one) saying you will build it, so two people don't do the same work.
 
 ### 2. Copy the template
 
 ```sh
-git clone https://github.com/vstrofago/comfytosh
+git clone https://github.com/rmandevs/comfytosh
 cd comfytosh
 cp -r template <your-tool>
 ```

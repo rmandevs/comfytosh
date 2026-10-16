@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 VENDOR = SITE / "vendor" / "comfytosh"
-REPO = "https://github.com/" + os.environ.get("GITHUB_REPOSITORY", "vstrofago/comfytosh")
+REPO = "https://github.com/" + os.environ.get("GITHUB_REPOSITORY", "rmandevs/comfytosh")
 BRANCH = os.environ.get("SITE_BRANCH", "main")
 
 FAMILIES = [
