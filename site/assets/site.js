@@ -1,4 +1,4 @@
-/* Comfytosh Theme landing: flavor switch, menu bar, palette formats and copy, port search and filters, hero search. */
+/* Comfytosh Theme landing: flavor switch, palette formats and copy, port search and filters, hero search. */
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -75,11 +75,6 @@
   });
   setPreview(root.getAttribute('data-theme') === 'carcasa' ? 'case' : 'screen');
 
-  /* ── Menu bar: plain air at the top, frosted plastic once anything slides under it ── */
-  var bar = document.querySelector('.ct-bar');
-  function frost() { if (bar) bar.classList.toggle('is-frosted', window.scrollY > 12); }
-  window.addEventListener('scroll', frost, { passive: true }); frost();
-
   /* ── Palette: press a key to copy its hex; copy the whole palette as CSS or SCSS ── */
   /* Colour format for the palette keys: HEX, RGB or HSL, remembered for the visit. */
   function setFormat(fmt) {
@@ -151,7 +146,7 @@
     filter = pills.some(function (p) { return p.getAttribute('data-filter') === key; }) ? key : 'all';
     pills.forEach(function (o) {
       var on = o.getAttribute('data-filter') === filter; o.setAttribute('aria-pressed', String(on));
-      o.classList.toggle('ct-pill--tangerine', on);
+      o.classList.toggle('is-on', on);
     });
   }
   pills.forEach(function (p) {
