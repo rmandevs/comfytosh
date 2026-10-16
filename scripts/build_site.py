@@ -225,7 +225,6 @@ def build(out):
         "<!-- @filters -->": render_filters(registry),
         "<!-- @ports -->": render_ports(registry),
         "{{port_count}}": str(len(registry["ports"])),
-        "{{colour_count}}": str(len(palette["primitives"])),
         "{{repo}}": REPO,
         "{{branch}}": BRANCH,
     }

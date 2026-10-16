@@ -53,7 +53,6 @@ img, svg { display: block; max-width: 100%; }
 .wordmark { margin: 0; font: 400 clamp(56px, 8.5vw, 104px)/1 var(--font-serif); letter-spacing: -.03em; }
 .lede { margin: 12px 0 0; font: 500 18px/28px var(--round); color: var(--muted); }
 .flavors { display: flex; gap: 14px; margin-top: 28px; }
-.meta { margin: 20px 0 0; font: 500 13px/20px var(--font-mono); color: var(--muted); }
 
 /* ── Sections ── */
 .section { max-width: 1080px; margin: 0 auto; padding: 72px 24px 0; }
